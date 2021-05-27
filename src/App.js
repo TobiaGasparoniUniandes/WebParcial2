@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import SeriesTable from "./SeriesTable";
+import SeriesDetail from "./SeriesDetail";
+import Graphic from "./Graphic";
+
+class App extends Component {
+    
+    state = {};
+    
+    render() {
+        return (
+        <div>
+            <h1>T.V. Series</h1>
+            <div style={{display: "flex", justifyContent: "center"}}>
+                <SeriesTable className="d-flex" onUpdateSeries={(newSeries) => this.setState(newSeries)}/>
+                <SeriesDetail currentSeries={this.state}/>
+            </div>
+            <Graphic/>
+        </div>
+    )}
 }
 
 export default App;
